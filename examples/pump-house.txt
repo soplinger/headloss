@@ -1,0 +1,11 @@
+# Pump house: well pump to a tank 12 m above, then a garden feed.
+temp 15C
+
+path well-to-tank flow=2.5L/s
+pipe name=suction len=6m d=50mm rough=pvc dz=0m k=entrance+check_valve+elbow90
+pipe name=rise   len=38m d=40mm rough=galvanized dz=12m k=gate_valve+elbow90*2
+pump curve=0L/s:38m,1L/s:36m,2L/s:32m,3L/s:26m,4L/s:16m
+
+path garden flow=1.2L/s
+pipe name=main  len=85m d=25mm rough=pe dz=0.5m k=tee_branch
+pipe name=drip  len=30m d=16mm rough=pe method=hw c=140 vmax=1.5m/s
